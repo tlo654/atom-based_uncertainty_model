@@ -14,19 +14,18 @@ class MoleculeDrawer():
   def _get_similarity_map_from_weights(mol, weights, colorMap=None, sigma=None,
                                   contourLines=10, draw2d=None, unc_type=None, **kwargs):
     """
-      Copied from Chem.Draw.SimilarityMaps GetSimilarityMapFromWeights
-      
-      Generates the similarity map for a molecule given the atomic weights.
+  从 Chem.Draw.SimilarityMaps 的 GetSimilarityMapFromWeights 函数复制而来
 
-      Parameters:
-        mol -- the molecule of interest
-        colorMap -- the matplotlib color map scheme, default is custom PiWG color map
-        sigma -- the sigma for the Gaussians
-        contourLines -- if integer number N: N contour lines are drawn
-                        if list(numbers): contour lines at these numbers are drawn
-        alpha -- the alpha blending value for the contour lines
-        unc_type -- if it's 'pred', do not draw color on atoms
-        kwargs -- additional arguments for drawing
+  根据原子权重为分子生成相似性映射图。
+
+  参数：
+    mol -- 目标分子
+    colorMap -- 采用的 matplotlib 色彩图方案，默认是自定义的 PiWG 色彩图
+    sigma -- 高斯分布的 sigma 值
+    contourLines -- 如果是整数 N：绘制 N 条等高线；如果是一个数字列表：在这些数字对应的值上绘制等高线
+    alpha -- 等高线的透明度（alpha 混合值）
+    unc_type -- 如果是 'pred'，则不在原子上绘制颜色
+    kwargs -- 绘图时的其他附加参数
       """
     if mol.GetNumAtoms() < 2:
       raise ValueError("too few atoms")
